@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<img src="imagens/LOGO.png" alt="logo" style="width:15%">
+</div>
+<body background="imagens/fundo3.jpg"></body>
+<style>
+	body  {
+	 
+	background-color: #97a0a4;
+	}
+</style>		
+<style>
+div{
+margin:50px;
+}
+
+#conceito{
+margin-left:40px;
+font-size:1.2em;
+}
+
+#img1{
+width:230px;
+height:200px;
+}
+
+#dv0{
+width:190px;
+height:190px;
+border-radius:50%;
+background-color:rgb(214, 43, 43);
+position:absolute;
+top:10px;
+right:60px;
+display:none;
+
+}
+
+.p0{
+font-size:3em;
+color:rgb(55, 34, 192);
+position:absolute;
+top:50px;
+left:60px;
+}
+
+
+
+</style>
+
+</head>
+<body onload='aguarde()'>
+<div>
+<label>Nota:1</label>
+<input type='number' id='nota1'>
+</div>
+
+<div>
+<label>Nota:2</label>
+<input type='number' id='nota2'>
+</div>
+
+<div>
+<label>Média </label>
+<input type='text' id='resp' readonly>
+<label id='conceito'><label>
+</div>
+
+<div>
+<img src='imagens/3.jpeg ' id='img1'>
+
+</div>
+
+<div>
+<button onclick='calcula()'>Clique Aqui </button>
+</div>
+
+
+<div id='dv0'>
+<p class='p0'>&#9888;</p>
+</div>
+
+
+
+
+<script>
+var y=50;
+
+function calcula(){
+var n1=parseFloat(document.getElementById('nota1').value);
+var n2=parseFloat(document.getElementById('nota2').value);
+var media=(n1+n2)/2;
+
+document.getElementById('resp').value=media.toFixed(2);
+
+var conceito,cor, imagem;
+
+if(media>=7){
+	conceito='Aluno Aprovado';
+	cor='blue';
+	imagem='10.jpeg';
+}
+
+else if(media>=5 && media<7){
+	conceito=' Pedir Subst';
+	cor='green';
+	imagem='16.jpg';
+}
+
+else if(media<5){
+	conceito='Aluno Reprovado';
+	cor='red';
+	imagem='12.png';
+}
+
+document.getElementById('conceito').innerHTML=conceito;
+document.getElementById('conceito').style.color=cor;
+document.getElementById('img1').src='imagens/'+imagem;
+}
+
+
+function aguarde(){
+setTimeout("mostra()",2000);
+}
+
+function mostra(){
+document.getElementById('dv0').style.display='block';
+document.getElementById('dv0').style.top=y+"px";
+if (y<400){
+y=y+40;
+aguarde();
+}
+else{
+document.getElementById('dv0').style.display='none';
+}
+}
+
+</script>
+
+</body>
+</html>
+
